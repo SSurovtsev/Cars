@@ -1,0 +1,38 @@
+button {
+  margin-right: 10px;
+  border-radius: 30px;
+}
+
+.alert {
+  width: 400px;
+  border-radius: 30px;
+  margin-left: 15px;
+  vertical-align: middle
+}
+
+.btn-sm {
+  font-size: 1em;
+  padding: 8px;
+  line-height: 8px;
+}
+
+.container {
+  margin-bottom: 50px;
+}
+
+.choose {
+  width: 600px;
+  padding: 30px;
+}
+
+.mark {
+  margin: 10px;
+}
+
+.warning-message {
+  text-align: center;
+  margin-bottom: 35px;
+}
+
+
+

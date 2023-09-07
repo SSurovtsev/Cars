@@ -1,0 +1,69 @@
+<div class="container">
+  <br>
+  <h3 class="warning-message"> Данный раздел является строго информационным для демонстрации навыков!</h3>
+  <h4><strong>Автомобиль</strong>: {{name}}
+  <small>{{model}}</small></h4>
+  <div class="alert alert-primary">
+    <p class="text-center">Характеристики автомобиля:</p>
+    <ul>
+      <li>Скорость: <strong>{{speed}}</strong> км/ч</li>
+      <li>Объем двигателя: <strong>{{volume}}</strong> л.</li>
+      <li>Лошадинные силы: <strong>{{hp}}</strong> л.с.</li>
+      <li>Цвет авто: <strong>{{colors.car}}</strong></li>
+      <li>Цвет салона: <strong>{{colors.salon}}</strong></li>
+      <li>Цвет колес: <strong>{{colors.wheels}}</strong></li>
+    </ul>
+  </div>
+
+
+  <button class="btn btn-danger" (click)="showEdit()">Редактировать </button>
+  <div><br></div>
+  <form *ngIf="isEdit">
+    <h5>Редактирование объекта</h5>
+    <div class="form-group">
+      <input type="text" placeholder="Марка авто" class="form-control" [(ngModel)]="name" name="name"><br>
+      <input type="text" placeholder="Модель авто" class="form-control" [(ngModel)]="model" name="model"><br>
+      <input type="text" placeholder="Объем двигателя" class="form-control" [(ngModel)]="volume" name="volume"><br>
+      <input type="number" placeholder="Лошадинные силы" class="form-control" [(ngModel)]="hp" name="hp"><br>
+      <input type="number" placeholder="Скорость" class="form-control" [(ngModel)]="speed" name="speed"><br>
+      <input type="text" placeholder="Цвет авто" class="form-control" [(ngModel)]="colors.car" name="car"><br>
+      <input type="text" placeholder="Цвет салона" class="form-control" [(ngModel)]="colors.salon" name="salon"><br>
+      <input type="text" placeholder="Цвет колес" class="form-control" [(ngModel)]="colors.wheels" name="wheels"><br>
+    </div>
+  </form>
+
+  <h5>Дополнительные системы: </h5>
+  <form *ngIf="isEdit">
+    <form (submit)="addOpt(option.value)">
+      <div class="form-group">
+        <label for="option"> Добавление новой системы</label>
+        <input type="text" id="option" placeholder="Введите текст" class="form-control" #option>
+        <br>
+        <button type="submit" class="btn btn-outline-success">Добавить</button><br>
+      </div><br>
+    </form>
+  </form>
+  <div class="alert alert-success">
+    <ul>
+      <li *ngFor="let opt of options">
+        {{opt}} <button class="btn btn-warning btn-sm" (click)="deleteOpt(opt)">x</button>
+      </li>
+<!--      если хотим сделать список с индексами по каждой строке:-->
+<!--      <li *ngFor="let opt of options; let i = index">{{i + 1}} - {{opt}}</li>-->
+
+    </ul>
+  </div>
+  <h5>Выберите автомобиль: </h5>
+  <div class="alert alert-warning choose">
+    <button class="btn btn-danger mark" (click)="carSelect('astonMartin')">Aston Martin </button>
+    <button class="btn btn-primary mark" (click)="carSelect('audi')">Audi </button>
+    <button class="btn btn-success mark" (click)="carSelect('ford')">Ford</button>
+    <button class="btn btn-danger mark" (click)="carSelect('bugatti')">Bugatti</button>
+    <button class="btn btn-primary" (click)="carSelect('corvette')">Corvette </button>
+    <button class="btn btn-success" (click)="carSelect('koen')">Koenigsegg</button>
+    <button class="btn btn-danger" (click)="carSelect('lambo')">Lamborghini</button>
+    <button class="btn btn-primary" (click)="carSelect('mercedes')">Mercedes Benz </button>
+    <button class="btn btn-success" (click)="carSelect('jaguar')">Jaguar </button>
+  </div>
+</div>
+
